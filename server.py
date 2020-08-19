@@ -13,18 +13,6 @@ def page(page):
         return redirect("/")
     return render_template(page + ".html")
 
-@app.route("/welcome")
-def welcome():
-    return render_template("welcome.html")
-
-@app.route("/introduce")
-def introduce():
-    return render_template("introduce.html")
-
-@app.route("/worship")
-def worship():
-    return render_template("worship.html")
-
 
 if __name__ == "__main__":
     app.run(threaded=True, debug=True)
