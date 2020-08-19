@@ -15,5 +15,5 @@ def page(page):
 
 
 if __name__ == "__main__":
-    app.run(threaded=True, debug=True)
-    #app.run(host="172.30.1.25", threaded=True)
+    #app.run(threaded=True, debug=True)
+    app.run(host="172.30.1.25", threaded=True)
