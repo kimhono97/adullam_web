@@ -30,7 +30,7 @@ def sermon():
                 break
             tab += 1
     
-    videos = ytd.getVideos(playlists[tab]['pid'])
+    videos = ytd.getVideos(playlists[tab]['pid']).copy()
     videos.reverse()
     tabs = list(enumerate(playlists))
 
