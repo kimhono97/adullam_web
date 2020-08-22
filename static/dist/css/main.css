@@ -38,23 +38,9 @@
 .img-unavailable {
     opacity: 0.5;
 }
-
 .img-page-title {
     height: 80px;
 }
-.col-worship {
-    margin: 10px 0px;
-    height: 180px;
-    min-width: 200px;
-    max-width: 200px;
-}
-.card-worship {
-    height: 100%;
-}
-.card-core {
-    height: 100%;
-}
-
 .img-banner {
     width: 100%;
     overflow: hidden;
@@ -62,4 +48,26 @@
 .img-banner img {
     width: 100%;
     margin: -15% 0;
+}
+.img-profile {
+    width: 90px;
+    height: 90px;
+    opacity: 0.8;
+}
+.img-video {
+    margin: -9% 0;
+}
+
+.col-worship {
+    margin: 10px 0px;
+    height: 180px;
+    min-width: 200px;
+    /*max-width: 200px;*/
+}
+
+.card-worship {
+    height: 100%;
+}
+.card-core {
+    height: 100%;
 }
