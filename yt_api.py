@@ -60,8 +60,8 @@ class YT_Data:
         print("<!> YT_Data : Refreshed")
         return
 
-#key = "AIzaSyDoG6P2w263G7gjtYsi9ryhOhy_NdsLUGQ"
-key = "AIzaSyAVGzJe12gm1LzSxPvgYIRQwYQM0Hxjb7I" #temp key
+key = "AIzaSyDoG6P2w263G7gjtYsi9ryhOhy_NdsLUGQ"
+#key = "AIzaSyAVGzJe12gm1LzSxPvgYIRQwYQM0Hxjb7I" #temp key
 ch_id = {"adullam" : "UCXZe6SLnxBSB0S6XBaxHK4g"}
 
 if __name__ == "__main__":

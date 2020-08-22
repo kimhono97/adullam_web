@@ -44,5 +44,5 @@ def update():
 
 if __name__ == "__main__":
     ytd = yt.YT_Data(yt.key, yt.ch_id['adullam'])
-    app.run(threaded=True, debug=False)
-    #app.run(host="172.30.1.25", threaded=True)
+    #app.run(threaded=True, debug=False)
+    app.run(host="172.30.1.25", threaded=True)
