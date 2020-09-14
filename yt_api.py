@@ -11,8 +11,8 @@ class YT_Data:
         print("<!> YT_Data : Inited")
         
     def __findPlaylists(self):
-        url = self.__url_pref + "playlists?part=snippet&channelId=%s&key=%s"
-        req = requests.get(url % (self.__ch_id, self.__key))
+        url = self.__url_pref + "playlists?part=snippet&maxResults=%d&channelId=%s&key=%s"
+        req = requests.get(url % (30, self.__ch_id, self.__key))
         d = json.loads(req.text)
         out = []
         for pl in d['items']:
@@ -32,6 +32,8 @@ class YT_Data:
             req = requests.get(url % (30, plid, self.__key))
             d_items = []
             d = json.loads(req.text)
+            if 'error' in d.keys():
+                continue
             d_items += d['items']
             while 'nextPageToken' in d.keys():
                 req = requests.get(url % (30, plid, self.__key) + ('&pageToken=%s' % d['nextPageToken']))
@@ -61,12 +63,14 @@ class YT_Data:
         return
 
 key = "AIzaSyDoG6P2w263G7gjtYsi9ryhOhy_NdsLUGQ"
-#key = "AIzaSyAVGzJe12gm1LzSxPvgYIRQwYQM0Hxjb7I" #temp key
+tkey = "AIzaSyAVGzJe12gm1LzSxPvgYIRQwYQM0Hxjb7I" #temp key
 ch_id = {"adullam" : "UCXZe6SLnxBSB0S6XBaxHK4g"}
 
 if __name__ == "__main__":
     yt = YT_Data(key, ch_id['adullam'])
-    videos = yt.getVideos()
+    playlists = yt.getPlaylists()
+    print(json.dumps(playlists, indent='\t'))
+    videos = yt.getVideos(playlists[0]['pid'])
     print(json.dumps(videos, indent="\t"))
 
 
