@@ -41,12 +41,20 @@ class YT_Data:
                 d_items += d['items']
             for vd in d_items:
                 i = {}
+                if vd['snippet']['title'] in ['Deleted video', 'Private video']:
+                    continue
                 i['vid'] = vd['snippet']['resourceId']['videoId']
                 i['vtitle'] = vd['snippet']['title']
                 i['vdesc'] = vd['snippet']['description']
                 tmp = vd['snippet']['publishedAt']
                 i['vpubat'] = tmp[:10] + " " + tmp[11:-1]
-                i['vthumbnail'] = vd['snippet']['thumbnails']['high']
+                tmp = vd['snippet']['thumbnails']
+                if 'high' in tmp.keys():
+                    i['vthumbnail'] = tmp['high']
+                elif len(tmp) > 0:
+                    i['vthumbnail'] = tmp[list(tmp.keys())[-1]]
+                else:
+                    i['vthumbnail'] = 'https://www.worldloppet.com/wp-content/uploads/2018/10/no-img-placeholder.png'
                 out[plid].append(i)
         return out
 
@@ -63,7 +71,7 @@ class YT_Data:
         return
 
 key = "AIzaSyDoG6P2w263G7gjtYsi9ryhOhy_NdsLUGQ"
-tkey = "AIzaSyAVGzJe12gm1LzSxPvgYIRQwYQM0Hxjb7I" #temp key
+tkey = "AIzaSyAVGzJe12gm1LzSxPvgYIRQwYQM0Hxjb7I" #temp keyi
 ch_id = {"adullam" : "UCXZe6SLnxBSB0S6XBaxHK4g"}
 
 if __name__ == "__main__":
